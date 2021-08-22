@@ -1,0 +1,28 @@
+body{
+	font-size:20px;
+	box-sizing:border-box;
+	font-family:Roboto;
+	background:#ccc;
+	margin-top:1px;
+	margin-left:5px;
+	margin-right:0;
+	
+
+
+}
+.titulos {
+	color:#000;
+	font-size:28px;
+	padding:10%;
+	text-align:center;
+}
+
+.paragrafos {
+	color:#000;
+	font-size:20px;
+	padding:10px;
+	text-align:center;
+
+
+	
+}

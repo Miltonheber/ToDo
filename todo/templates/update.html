@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block titulo %}Update{% endblock %}
+
+{% block conteudo %}
+         <form  class="form" autocomplete="off" method="post">
+                 {% csrf_token %}
+                 {% bootstrap_form form %}
+                 {% buttons %}
+                         <button class="btn btn    -primary" type="submit">ADD</button>
+                 {% endbuttons %}
+
+        </form>
+
+{% endblock %}
+
+
+

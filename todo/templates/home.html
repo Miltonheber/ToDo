@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load bootstrap4 %}
+
+
+{% block titulo %}Home{% endblock %}
+
+
+{% block conteudo %}
+	<form  class="form" autocomplete="off" method="post">
+		{% csrf_token %}
+		{% bootstrap_form form %}
+		{% buttons %}
+			<button class="btn btn-primary" type="submit">ADD</button>
+		{% endbuttons %}
+
+	</form>
+	{% if tarefas %}
+		<h1 class="titulos">Your Tasks! </h1>
+		<table class="table table-dark">
+	 <thead>
+	   <tr>
+	     <th scope="col">Task</th>
+	     <th scope="col">Status</th>
+	     <th scope="col">Update</th>
+	     <th scope="col">Delete</th>
+	   </tr>
+	 </thead>
+	 {% for task in tarefas %}
+		 <tbody>
+		   <tr>
+		     <td scope="row">{{task.name}}</td>
+		     <td scope="row">{{task.status}}</td>
+		     <td scope="row">{% buttons %}<a href="{% url 'delete' task.id %}"><button type="button" class="btn btn-success">Delete</button></a>{% endbuttons %}</td>
+		     <td scope="row">{% buttons %}<a href="{% url 'update' task.id %}"><button type="button" class="btn btn-success">Update</button></a>{% endbuttons %}</td>
+		   </tr>
+		 </tbody>
+	{% endfor %}
+</table>
+
+	{% endif %}
+	{% if not tarefas %}
+		<h1 class="titulos">Without Task :(</h1>
+	{% endif %}
+{% endblock %}
